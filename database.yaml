@@ -1,0 +1,15 @@
+---
+  - name: Installing mariadb packages.
+    hosts: local
+    remote_user: root
+    tasks:
+     - name: mariadb-server package.
+       yum:
+        name: mariadb-server
+        state: latest
+     - name: package service start and enable.
+       service:
+        name: mariadb
+        state: started
+        enabled: yes
+

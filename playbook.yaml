@@ -1,21 +1,21 @@
 ---
   - name: Writing a play book to install httpd services.
-    hosts: 
-    become: true
+    hosts: local 
+    remote_user: root
     tasks:
-  - name: Installing httpd package.
-    yum:
-      name: httpd
-      state: latest
-  - name: starting service and enable.
-    service:
-      name: httpd
-      state: started
-      enabled: yes
-  - name: Adding content to host.
-    copy:
-      src: /var/www/html/index.html
-      dest: /var/www/html/index.html
-      owner: root
-      group: root
-      mode: '0644' 
+     - name: Installing httpd package.
+       yum:
+         name: httpd
+         state: latest
+     - name: starting service and enable.
+       service:
+         name: httpd
+         state: started
+         enabled: yes
+     - name: Adding content to host.
+       copy:
+         src: /var/www/html/index.html
+         dest: /var/www/html/index.html
+         owner: root
+         group: root
+         mode: '0644' 
