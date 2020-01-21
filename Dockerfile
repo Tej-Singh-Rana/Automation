@@ -8,4 +8,6 @@ RUN cd / && rpm -i jdk-8u121-linux-x64.rpm
 COPY .bashrc /root/.bashrc
 RUN source /root/.bashrc
 EXPOSE 8088 50070 50075 50030 50060 50090 
-ENTRYPOINT 
+
+
+

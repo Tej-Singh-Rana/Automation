@@ -14,8 +14,10 @@ services:
          volumes:
           - NM1:/node1
          expose:
-          - "50070:50070"
-          - "8020:8020"
+          - "${namenode_http}:50070"
+          - "${namenode_ipc}:8020"
+         env_file:
+          - ./var.env
          networks:
             cluster:
               ipv4_address: 172.30.0.2  
