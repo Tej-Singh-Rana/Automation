@@ -1,0 +1,10 @@
+
+172.30.0.2	namenode.cluster1.com
+
+172.30.0.3	datanode1.cluster1.com
+172.30.0.4	datanode2.cluster1.com
+172.30.0.5	datanode3.cluster1.com
+172.30.0.6	datanode4.cluster1.com
+172.30.0.7	datanode5.cluster1.com
+
+

@@ -1,0 +1,116 @@
+version: "3.1"
+services:
+    hadoop_image:
+         image: hadoop:v1
+         build: .
+
+    namenode-master:
+         image: hadoop:v1
+         build: 
+            context: ./namenode
+            dockerfile: namenode.dockerfile
+         hostname: namenode.cluster1.com
+         container_name: namenode
+         volumes:
+          - NM1:/node1
+         expose:
+          - "50070:50070"
+          - "8020:8020"
+         networks:
+            cluster:
+              ipv4_address: 172.30.0.2  
+         restart: always
+
+    datanode1:
+        image: hadoop:v1
+        build: 
+           context: ./datanode1
+           dockerfile: datanode1.dockerfile
+        hostname: datanode1.cluster1.com
+        container_name: datanode1
+        volumes:
+          - DB1:/data1
+        expose: 
+        networks:
+          cluster:
+            ipv4_address: 172.30.0.3
+        restart: always
+
+    datanode2:
+        image: datanode2:v2
+        build: 
+           context: ./datanode2
+           dockerfile: datanode2.dockerfile
+        hostname: datanode2.cluster1.com
+        container_name: datanode2
+        volumes:
+          - DB2:/data2
+        expose:
+        networks:
+           cluster:
+             ipv4_address: 172.30.0.4
+        restart: always
+
+    datanode3:
+        image: datanode3:v3
+        build:
+          context: ./datanode3
+          dockerfile: datanode3.dockerfile
+        hostname: datanode3.cluster1.com
+        container_name: datanode3
+        volumes:
+           - DB3:/data3
+        expose:
+        networks:
+           cluster:
+             ipv4_address: 172.30.0.5
+        restart: always
+
+    datanode4:
+        image: datanode4:v4
+        build: 
+          context: ./datanode4
+          dockerfile: datanode4.dockerfile
+        hostname: datanode4.cluster1.com
+        container_name: datanode4
+        volumes: 
+          - DB4:/data4
+        expose:
+        networks:
+           cluster:
+             ipv4_address: 172.30.0.6
+        restart: always
+
+    datanode5:
+        image: datanode5:v5
+        build: 
+           context: ./datanode5
+           dockerfile: datanode5.dockerfile
+        hostname: datanode5.cluster1.com
+        container_name: datanode5
+        volumes:  
+          - DB5:/data5
+        expose:
+        networks:
+           cluster:
+             ipv4_address: 172.30.0.7
+        restart: always
+
+volumes: 
+    NM1: 
+
+    DB1:
+    DB2: 
+    DB3:
+    DB4: 
+    DB5:
+
+networks:
+    cluster:
+      driver: bridge
+      ipam:
+        config:
+          - subnet: 172.30.0.0/16
+
+
+

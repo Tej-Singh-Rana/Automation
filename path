@@ -1,0 +1,6 @@
+
+export JAVA_HOME=/usr/java/jdk1.8.0_121
+export HADOOP_HOME=/hadoop2
+PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+export PATH
+
