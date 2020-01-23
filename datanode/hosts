@@ -1,0 +1,8 @@
+
+172.50.0.11	namenode.cluster1.com
+
+172.50.0.12	datanode1.cluster1.com
+172.50.0.13	datanode2.cluster1.com
+172.50.0.14	datanode3.cluster1.com
+
+
